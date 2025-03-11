@@ -3,11 +3,9 @@ from flask_cors import CORS
 import pandas as pd
 
 app = Flask(__name__, static_folder="static", template_folder="static")
-CORS(app)  # Allow frontend requests
+CORS(app)
 
-print("🔄 Loading preprocessed data...")
-movie_ratings = pd.read_pickle("preprocessed_movies.pkl")  # Load preprocessed file
-print("✅ Data loaded!")
+movie_ratings = pd.read_pickle("preprocessed_movies.pkl")
 
 def search_movies(title="", min_rating=0, max_rating=5, genres=[]):
     """
